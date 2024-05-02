@@ -12,8 +12,10 @@ module.exports = {
     extend: {
     },
     colors: {
-      "red": "#841818"
-    }
+      white: '#ffffff',
+      'red': '#841818',
+      'metal': '#565584'
+    },
   },
   plugins: [],
 }
