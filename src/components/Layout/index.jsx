@@ -6,7 +6,9 @@ export default function Layout({ children }) {
     <div className="w-full h-screen flex flex-col">
       <Header />
       <Navbar />
-      <main className="flex-1 bg-[url('/assets/background.jpg')] bg-cover ">{children}</main>
+      <main className="flex-1 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
+        {children}
+      </main>
     </div>
   );
 }
