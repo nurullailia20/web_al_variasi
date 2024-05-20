@@ -5,6 +5,7 @@ import { BiTrashAlt } from "react-icons/bi";
 import { BsPencilSquare } from "react-icons/bs";
 import { HiInformationCircle } from "react-icons/hi";
 import ProductModal from "../form/ProductModal";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 function ProductListPage() {
   const [data, setData] = useState([]);
@@ -42,7 +43,7 @@ function ProductListPage() {
 
   return (
     <section className="flex h-full w-full flex-col gap-3">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center ">
         <h2 className="text-xl font-semibold leading-tight">
           Daftar Produk
         </h2>
@@ -50,29 +51,29 @@ function ProductListPage() {
           className="rounded-md bg-teal-400 px-4 py-2 text-sm text-white"
           onClick={() => handleModal(!formModalState.open)}
         >
-          Tambah
+          <IoAddCircleOutline/>
         </button>
       </div>
       <div className="inline-block max-h-[500px] min-w-full overflow-hidden rounded-lg shadow-lg hover:overflow-y-scroll">
-        <table className="min-w-full overflow-scroll leading-normal">
+        <table className="min-w-full overflow-scroll leading-normal bg-white">
           <thead>
             <tr>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 No
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nama Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Jumlah Stok
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Harga Barang 
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Tanggal Masuk Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
@@ -87,7 +88,7 @@ function ProductListPage() {
                     : "bg-gray-10 hover:bg-gray-200"
                 }
               >
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
+                <td className="border-gray-2 px-5 py-5 text-sm">
                   {index + 1}
                 </td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">

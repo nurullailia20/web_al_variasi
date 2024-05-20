@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function ProfileCard() {
   return (
-    <div className="h-[60px] w-[350px] border rounded-full flex justify-between p-2 items-center shadow-md">
+    <div className="h-[60px] w-[350px] border rounded-full flex justify-between p-2 items-center shadow-md bg-white">
       <div className="h-full w-auto flex gap-x-2">
         <div className="h-10 w-12 rounded-full">
           <Image width={40} height={40} src={user}/>
