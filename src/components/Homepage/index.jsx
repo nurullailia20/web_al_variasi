@@ -1,7 +1,11 @@
 import React from "react";
 import ActiveSlider from "./ActiveSlider";
 import Image from "next/image";
-import mobil from "../../../public/assets/mobil.jpg";
+import mobil from "../../../public/assets/mobil.jpg"
+// import lampu1 from "../../../public/assets/lampu-interior.jpg";
+// import lampu2 from "../../../public/assets/lampu-depan-mobil.jpg";
+// import lampu3 from "../../../public/assets/lampu_led_alis.jpg";
+
 
 function Homepage() {
   return (
