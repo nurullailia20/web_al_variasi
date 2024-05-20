@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import mobil from "../../../public/assets/mobil.jpg";
+import gambar from "../../../public/assets/gambar1.jpg";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,7 +16,7 @@ const ActiveSlider = () => {
     <Swiper navigation={true} modules={[Navigation]} className="h-full w-full">
       {[...new Array(20)].map((image) => (
         <SwiperSlide key={image} className="w-full flex justify-center items-center text-center h-full rounded-lg overflow-hidden">
-          <Image src={mobil} alt="" />
+          <Image src={gambar} alt="" />
         </SwiperSlide>
       ))}
     </Swiper>

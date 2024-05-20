@@ -17,7 +17,7 @@ function Header() {
       icon: <FaLocationPin />,
     },
     {
-      name: "Masuk/Daftar",
+      name: "Masuk",
       link: "/login",
       icon: <BiUserCircle />,
     },
