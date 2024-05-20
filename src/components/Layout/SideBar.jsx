@@ -9,44 +9,44 @@ import { TbLogout2 } from "react-icons/tb";
 function SideBar() {
   const sidelinks = [
     {
-      name: "Daftar Produk",
+      // name: "Daftar Produk",
       link: "/",
       icon: <BsBagCheckFill />,
     },
     {
-      name: "Daftar Pelanggan",
+      // name: "Daftar Pelanggan",
       link: "/member",
       icon: <FaUsers />,
     },
     {
-      name: "Riwayat Perbaikan",
+      // name: "Riwayat Perbaikan",
       link: "/service-history",
       icon: <FaClipboardList />,
     },
   ];
   const router = useRouter();
   return (
-    <div className="h-full w-[300px] border flex flex-col justify-between rounded-2xl p-5">
-      <div className="flex flex-col gap-y-5">
+    <div className="h-full w-[60px] border flex flex-col justify-between items-center rounded-full p-5 bg-white">
+      <div className="flex flex-col gap-y-6 ">
         <div>Al-Variasi</div>
         <ul>
           {sidelinks.map((sidelink) => (
             <li
-              key={sidelink.name}
+              // key={sidelink.name}
               onClick={() => router.push(sidelink.link)}
-              className="flex items-center gap-3 cursor-pointer py-3 px-4 hover:bg-gray-100"
+              className="flex gap-3 cursor-pointer py-10 px-4 hover:bg-gray-100"
             >
-              <span>{sidelink.icon}</span>
-              <span>{sidelink.name}</span>
+              <span >{sidelink.icon}</span>
+              {/* <span>{sidelink.name}</span> */}
             </li>
           ))}
         </ul>
       </div>
-      <button className="flex items-center gap-3 cursor-pointer py-3 px-4 hover:bg-gray-100">
+      <button className="flex gap-3 cursor-pointer py-3 px-4 hover:bg-gray-100">
         <span>
           <TbLogout2 />
         </span>
-        <span>Keluar</span>
+        {/* <span>Keluar</span> */}
       </button>
     </div>
   );
