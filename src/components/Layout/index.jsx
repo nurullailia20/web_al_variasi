@@ -18,21 +18,21 @@ export default function Layout({ children }) {
   return (
     <>
       {pathname == "/product" || "/member" ? (
-        <div className="w-full h-screen p-5 flex gap-5 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
-          <SideBar />
-
-          <main className="flex-1 flex flex-col gap-y-8 bg-cover bg-opacity-75">
-            <ProfileCard/>
-            <section className="flex-1">{children}</section>
-          </main>
-        </div>
-      ) : (
         <div className="w-full h-screen flex flex-col">
           <Header />
           <Navbar />
 
           <main className="flex-1 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
             {children}
+          </main>
+        </div>
+      ) : (
+        <div className="w-full h-screen p-5 flex gap-5 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
+          <SideBar />
+
+          <main className="flex-1 flex flex-col gap-y-8 bg-cover bg-opacity-75">
+            <ProfileCard/>
+            <section className="flex-1">{children}</section>
           </main>
         </div>
       )}
