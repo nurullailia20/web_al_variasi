@@ -9,7 +9,7 @@ function Navbar() {
     },
     {
       name: "Produk",
-      href: "#",
+      href: "/catalog",
     },
     {
       name: "Tentang Kami",
