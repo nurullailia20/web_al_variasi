@@ -1,20 +1,20 @@
-import axios from "axios";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { BiTrashAlt } from "react-icons/bi";
-import { BsPencilSquare } from "react-icons/bs";
-import { HiInformationCircle } from "react-icons/hi";
-import ProductModal from "../form/ProductModal";
-import { IoAddCircleOutline } from "react-icons/io5";
+// import { useRouter } from "next/router";
+import React, { useState } from 'react'
+import { BiTrashAlt } from 'react-icons/bi'
+import { BsPencilSquare } from 'react-icons/bs'
+import { HiInformationCircle } from 'react-icons/hi'
+import { IoAddCircleOutline } from 'react-icons/io5'
+
+import ProductModal from '../form/ProductModal'
 
 function ProductListPage() {
-  const [data, setData] = useState([]);
-  const [formModalState, setFormModalState] = useState({open:false, selectedId:undefined});
-  const handleModal = (open, selectedId="") => {
-    setFormModalState({open, selectedId})
-  };
+  // const [data, setData] = useState([]);
+  const [formModalState, setFormModalState] = useState({ open: false, selectedId: undefined })
+  const handleModal = (open, selectedId = '') => {
+    setFormModalState({ open, selectedId })
+  }
 
-  const router = useRouter();
+  // const router = useRouter();
 
   // const handleDelete = async (id) => {
   //   try {
@@ -44,66 +44,47 @@ function ProductListPage() {
   return (
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center ">
-        <h2 className="text-xl font-semibold leading-tight">
-          Daftar Produk
-        </h2>
+        <h2 className="text-xl font-semibold leading-tight">Daftar Produk</h2>
         <button
-          className="rounded-md bg-teal-400 px-4 py-2 text-sm text-white"
+          className="bg-teal-400 rounded-md px-4 py-2 text-sm text-white"
           onClick={() => handleModal(!formModalState.open)}
         >
-          <IoAddCircleOutline/>
+          <IoAddCircleOutline />
         </button>
       </div>
       <div className="inline-block max-h-[500px] min-w-full overflow-hidden rounded-lg shadow-lg hover:overflow-y-scroll">
-        <table className="min-w-full overflow-scroll leading-normal bg-white">
+        <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 No
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nama Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Jumlah Stok
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Harga Barang 
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+                Harga Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Tanggal Masuk Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
           </thead>
           <tbody>
-            {data?.map((item, index) => (
-              <tr
-                key={index}
-                className={
-                  index % 2 === 0
-                    ? "hover:bg-gray-200"
-                    : "bg-gray-10 hover:bg-gray-200"
-                }
-              >
-                <td className="border-gray-2 px-5 py-5 text-sm">
-                  {index + 1}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.name}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.stock}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.price}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.date_in}
-                </td>
-                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
+            {{ ...new Array(4) }.map((item, index) => (
+              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-200' : 'bg-gray-10 hover:bg-gray-200'}>
+                <td className="border-gray-2 px-5 py-5 text-sm">{index + 1}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.name}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.stock}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.price}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.date_in}</td>
+                <td className="border-gray-200 gap-x-2 bg-white px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -111,7 +92,7 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <HiInformationCircle className="h-5 w-5" />
                   </button>
@@ -123,19 +104,19 @@ function ProductListPage() {
                     title="Edit Data"
                     type="button"
                     onClick={() => handleModal(!formModalState.open, item.id)}
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <BsPencilSquare className="h-5 w-5" />
                   </button>
                   <button
-                    onClick={() => handleDelete(item.id)}
+                    // onClick={() => handleDelete(item.id)}
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
                     data-twe-ripple-init
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-red-500 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <BiTrashAlt className="h-5 w-5" />
                   </button>
@@ -145,9 +126,15 @@ function ProductListPage() {
           </tbody>
         </table>
       </div>
-      {formModalState.open && <ProductModal open={formModalState.open} setOpen={(open) => handleModal(open)} selectedId = {formModalState.selectedId}  />}
+      {formModalState.open && (
+        <ProductModal
+          open={formModalState.open}
+          setOpen={open => handleModal(open)}
+          selectedId={formModalState.selectedId}
+        />
+      )}
     </section>
-  );
+  )
 }
 
-export default ProductListPage;
+export default ProductListPage

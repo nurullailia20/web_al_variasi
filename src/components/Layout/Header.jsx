@@ -1,37 +1,37 @@
-import { useRouter } from "next/navigation";
-import React from "react";
-import { BiUserCircle } from "react-icons/bi";
-import { FaLocationPin } from "react-icons/fa6";
-import { PiPhoneCall } from "react-icons/pi";
+import { useRouter } from 'next/navigation'
+import React from 'react'
+import { BiUserCircle } from 'react-icons/bi'
+import { FaLocationPin } from 'react-icons/fa6'
+import { PiPhoneCall } from 'react-icons/pi'
 
 function Header() {
   const headerLinks = [
     {
-      name: "Hubungi Kami",
-      link: "#",
+      name: 'Hubungi Kami',
+      link: '#',
       icon: <PiPhoneCall />,
     },
     {
-      name: "Balikpapan",
-      link: "#",
+      name: 'Balikpapan',
+      link: '#',
       icon: <FaLocationPin />,
     },
     {
-      name: "Masuk",
-      link: "/login",
+      name: 'Masuk',
+      link: '/login',
       icon: <BiUserCircle />,
     },
-  ];
+  ]
 
-  const router = useRouter();
+  const router = useRouter()
   return (
-    <header className="h-10 w-full bg-red flex justify-end items-center px-5">
+    <header className="flex h-10 w-full items-center justify-end bg-red px-5">
       <ul className="flex gap-x-5 ">
-        {headerLinks.map((headerLink) => (
+        {headerLinks.map(headerLink => (
           <li
             key={headerLink.name}
             onClick={() => router.push(headerLink.link)}
-            className="flex items-center gap-1 cursor-pointer"
+            className="flex cursor-pointer items-center gap-1"
           >
             <span className="text-white">{headerLink.icon}</span>
             <span className="text-white">{headerLink.name}</span>
@@ -39,7 +39,7 @@ function Header() {
         ))}
       </ul>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

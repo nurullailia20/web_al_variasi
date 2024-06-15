@@ -1,10 +1,9 @@
 import React from 'react'
+
 import ProductListPage from '../../components/ProductListPage'
 
 function Product() {
-  return (
-    <ProductListPage/>
-  )
+  return <ProductListPage />
 }
 
 export default Product
