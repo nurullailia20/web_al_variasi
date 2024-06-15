@@ -1,28 +1,28 @@
-import { useRouter } from "next/navigation";
-import React from "react";
+import { useRouter } from 'next/navigation'
+import React from 'react'
 
 function Navbar() {
   const navlinks = [
     {
-      name: "Beranda",
-      href: "/",
+      name: 'Beranda',
+      href: '/',
     },
     {
-      name: "Produk",
-      href: "/catalog",
+      name: 'Produk',
+      href: '/catalog',
     },
     {
-      name: "Tentang Kami",
-      href: "/about",
+      name: 'Tentang Kami',
+      href: '/about',
     },
-  ];
-  const router = useRouter();
+  ]
+  const router = useRouter()
   return (
-    <nav className="w-full h-[60px] border bg-white flex justify-between items-center px-6 py-3">
+    <nav className="flex h-[60px] w-full items-center justify-between border bg-white px-6 py-3">
       <div>
-      <img src="/assets/mobil.jpg" alt="Bengkel Variasi Mobil" className="h-10" />
+        <img src="/assets/mobil.jpg" alt="Bengkel Variasi Mobil" className="h-10" />
       </div>
-      <ul className="w-auto flex justify-between gap-5 items-center cursor-pointer">
+      <ul className="flex w-auto cursor-pointer items-center justify-between gap-5">
         {navlinks.map((navlink, index) => (
           <li key={index} onClick={() => router.push(navlink.href)}>
             {navlink.name}
@@ -30,7 +30,7 @@ function Navbar() {
         ))}
       </ul>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

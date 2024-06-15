@@ -1,55 +1,53 @@
-import { useRouter } from "next/navigation";
-import React from "react";
-import { BiBook, BiLogOut } from "react-icons/bi";
-import { BsBagCheckFill } from "react-icons/bs";
-import { CgLogOut } from "react-icons/cg";
-import { FaClipboardList, FaProductHunt, FaUsers } from "react-icons/fa";
-import { TbLogout2 } from "react-icons/tb";
+import { useRouter } from 'next/navigation'
+import React from 'react'
+import { BsBagCheckFill } from 'react-icons/bs'
+import { FaClipboardList, FaUsers } from 'react-icons/fa'
+import { TbLogout2 } from 'react-icons/tb'
 
 function SideBar() {
   const sidelinks = [
     {
       // name: "Daftar Produk",
-      link: "/",
+      link: '/',
       icon: <BsBagCheckFill />,
     },
     {
       // name: "Daftar Pelanggan",
-      link: "/member",
+      link: '/member',
       icon: <FaUsers />,
     },
     {
       // name: "Riwayat Perbaikan",
-      link: "/service-history",
+      link: '/service-history',
       icon: <FaClipboardList />,
     },
-  ];
-  const router = useRouter();
+  ]
+  const router = useRouter()
   return (
-    <div className="h-full w-[60px] border flex flex-col justify-between items-center rounded-full p-5 bg-white">
+    <div className="flex h-full w-[60px] flex-col items-center justify-between rounded-full border bg-white p-5">
       <div className="flex flex-col gap-y-6 ">
         <div>Al-Variasi</div>
         <ul>
-          {sidelinks.map((sidelink) => (
+          {sidelinks.map(sidelink => (
             <li
               // key={sidelink.name}
               onClick={() => router.push(sidelink.link)}
-              className="flex gap-3 cursor-pointer py-10 px-4 hover:bg-gray-100"
+              className="hover:bg-gray-100 flex cursor-pointer gap-3 px-4 py-10"
             >
-              <span >{sidelink.icon}</span>
+              <span>{sidelink.icon}</span>
               {/* <span>{sidelink.name}</span> */}
             </li>
           ))}
         </ul>
       </div>
-      <button className="flex gap-3 cursor-pointer py-3 px-4 hover:bg-gray-100">
+      <button className="hover:bg-gray-100 flex cursor-pointer gap-3 px-4 py-3">
         <span>
           <TbLogout2 />
         </span>
         {/* <span>Keluar</span> */}
       </button>
     </div>
-  );
+  )
 }
 
-export default SideBar;
+export default SideBar

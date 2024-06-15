@@ -1,34 +1,35 @@
-import React from "react";
-import gambar from "../../../public/assets/gambar1.jpg";
-import ProductCard from "./ProductCard";
+import React from 'react'
+
+import gambar from '../../../public/assets/gambar1.jpg'
+import ProductCard from './ProductCard'
 
 const productsData = [
   {
     image: gambar,
-    url: "/product1",
+    url: '/product1',
   },
   {
     image: gambar,
-    url: "/product2",
+    url: '/product2',
   },
   {
     image: gambar,
-    url: "/product3",
+    url: '/product3',
   },
   {
     image: gambar,
-    url: "/product4",
+    url: '/product4',
   },
-];
+]
 
 function ProductCatalog() {
   return (
-    <div className="w-full h-full grid grid-cols-3 gap-3 items-center justify-center">
+    <div className="grid h-full w-full grid-cols-3 items-center justify-center gap-3">
       {productsData.map((item, index) => (
-        <ProductCard image={item.image} productUrl={item.url} />
+        <ProductCard image={item.image} productUrl={item.url} key={index} />
       ))}
     </div>
-  );
+  )
 }
 
-export default ProductCatalog;
+export default ProductCatalog
