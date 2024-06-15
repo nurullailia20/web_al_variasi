@@ -17,8 +17,9 @@ export default function Layout({ children }) {
   const { pathname } = useRouter()
   return (
     <>
-      {pathname === '/product' || pathname === '/member' ? (
-        <div className="flex h-screen w-full gap-5 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover p-5">
+
+      {pathname === "/product" || pathname === "/member" || pathname === "/service-history" ? (
+        <div className="w-full h-screen p-5 flex gap-5 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
           <SideBar />
 
           <main className="flex flex-1 flex-col gap-y-8 bg-opacity-75 bg-cover">
