@@ -1,11 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { BiTrashAlt } from "react-icons/bi";
-import { BsPencilSquare } from "react-icons/bs";
-import { HiInformationCircle } from "react-icons/hi";
+import React from 'react'
+import { BiTrashAlt } from 'react-icons/bi'
+import { BsPencilSquare } from 'react-icons/bs'
+import { HiInformationCircle } from 'react-icons/hi'
 
 function MemberListPage() {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([])
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -19,7 +18,6 @@ function MemberListPage() {
   //   };
   //   fetchData();
   // }, []);
-
 
   return (
     <section className="flex h-full w-full flex-col gap-3">
@@ -59,34 +57,15 @@ function MemberListPage() {
             </tr>
           </thead>
           <tbody>
-            {data?.map((item, index) => (
-              <tr
-                key={index}
-                className={
-                  index % 2 === 0
-                    ? "hover:bg-gray-200"
-                    : "bg-gray-10 hover:bg-gray-200"
-                }
-              >
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {index + 1}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.name}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.vehicle}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.police_number}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.phone_number}
-                </td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">
-                  {item.total_point}
-                </td>
-                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
+            {{ ...new Array(4) }.map((item, index) => (
+              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-200' : 'bg-gray-10 hover:bg-gray-200'}>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{index + 1}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.name}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.vehicle}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.police_number}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.phone_number}</td>
+                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.total_point}</td>
+                <td className="border-gray-200 gap-x-2 bg-white px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -94,7 +73,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <HiInformationCircle className="h-5 w-5" />
                   </button>
@@ -105,7 +84,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Edit Data"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <BsPencilSquare className="h-5 w-5" />
                   </button>
@@ -116,7 +95,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
+                    className="bg-red-500 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
                   >
                     <BiTrashAlt className="h-5 w-5" />
                   </button>
@@ -127,7 +106,7 @@ function MemberListPage() {
         </table>
       </div>
     </section>
-  );
+  )
 }
 
-export default MemberListPage;
+export default MemberListPage

@@ -1,6 +1,7 @@
-import Layout from "../components/Layout";
 // import { ToggleFormProvider } from "../hooks/useToggleForm";
-import "../styles/globals.css";
+import '../styles/globals.css'
+
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </Layout>
     // </ToggleFormProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
