@@ -16,7 +16,7 @@ export default function Layout({ children }) {
   const { pathname } = useRouter();
   return (
     <>
-      {pathname === "/product" || pathname === "/member" ? (
+      {pathname === "/product" || pathname === "/member" || pathname === "/service-history" ? (
         <div className="w-full h-screen p-5 flex gap-5 bg-[url('/assets/background.jpg')] bg-cover bg-opacity-75">
           <SideBar />
 

@@ -4,7 +4,7 @@ import { BiTrashAlt } from "react-icons/bi";
 import { BsPencilSquare } from "react-icons/bs";
 import { HiInformationCircle } from "react-icons/hi";
 
-function MemberListPage() {
+function ServiceHistoryPage() {
   const [data, setData] = useState([]);
 
   // useEffect(() => {
@@ -25,9 +25,9 @@ function MemberListPage() {
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold leading-tight">
-          Pelanggan Terdaftar
+          Riwayat Perbaikan Member
         </h2>
-        <button className="rounded-md bg-white px-4 py-2 text-sm">
+        <button className="rounded-md bg-teal-400 px-4 py-2 text-sm text-white">
           Tambah
         </button>
       </div>
@@ -39,26 +39,23 @@ function MemberListPage() {
                 No
               </th>
               <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Nama
-              </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Kendaraan
+                Nama Pelanggan
               </th>
               <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nomor Kendaraan
               </th>
               <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Nomor Telepon
+                Tgl Terakhir Service
               </th>
               <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Total Poin
+                Service/Peningkatan
               </th>
               <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {data?.map((item, index) => (
               <tr
                 key={index}
@@ -123,11 +120,11 @@ function MemberListPage() {
                 </td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </section>
   );
 }
 
-export default MemberListPage;
+export default ServiceHistoryPage;
