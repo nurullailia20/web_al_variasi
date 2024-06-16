@@ -8,7 +8,7 @@ function Header() {
   const headerLinks = [
     {
       name: 'Hubungi Kami',
-      link: '#',
+      link: '/contact-us',
       icon: <PiPhoneCall />,
     },
     {
