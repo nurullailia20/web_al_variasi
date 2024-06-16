@@ -1,56 +1,55 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
-import axios from 'axios'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function ProductModal({ open, setOpen, selectedId = '' }) {
   const {
     register,
     handleSubmit,
-    setValue,
+    // setValue,
     formState: { errors },
   } = useForm()
 
-  const { reload } = useRouter()
+  // const { reload } = useRouter()
 
   const toggleModal = () => {
     setOpen(!open)
   }
 
-  const [data, setData] = useState({})
+  // const [data, setData] = useState({})
 
-  useEffect(() => {
-    const getProduct = async id => {
-      const response = await axios.get(`http://localhost:4000/product/${id}`)
-      setData(response.data.data)
-    }
-    getProduct(selectedId)
-  }, [selectedId])
+  // useEffect(() => {
+  //   const getProduct = async id => {
+  //     const response = await axios.get(`http://localhost:4000/product/${id}`)
+  //     setData(response.data.data)
+  //   }
+  //   getProduct(selectedId)
+  // }, [selectedId])
 
-  useEffect(() => {
-    if (selectedId) {
-      setValue('name', data.name)
-      setValue('stock', data.stock)
-      setValue('price', data.price)
-      setValue('date_in', data.date_in)
-    }
-  }, [selectedId, data])
+  // useEffect(() => {
+  //   if (selectedId) {
+  //     setValue('name', data.name)
+  //     setValue('stock', data.stock)
+  //     setValue('price', data.price)
+  //     setValue('date_in', data.date_in)
+  //   }
+  // }, [selectedId, data])
 
   const onSubmit = async val => {
-    try {
-      let response
-      if (selectedId) {
-        response = await axios.put(`http://localhost:4000/product/${selectedId}`, val)
-      } else {
-        response = await axios.post('http://localhost:4000/product', val)
-      }
-      alert(response.data.message)
-      reload()
-      return response
-    } catch (error) {
-      console.log(error)
-    }
+    // try {
+    //   let response
+    //   if (selectedId) {
+    //     response = await axios.put(`http://localhost:4000/product/${selectedId}`, val)
+    //   } else {
+    //     response = await axios.post('http://localhost:4000/product', val)
+    //   }
+    //   alert(response.data.message)
+    //   reload()
+    //   return response
+    // } catch (error) {
+    //   console.log(error)
+    // }
+    console.log(val)
   }
 
   return (
@@ -67,7 +66,7 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
               leaveFrom="opacity-100 scale-0"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="flex w-full max-w-md flex-col space-y-5 rounded-xl border border-teal-400 bg-white p-5 shadow-xl">
+              <DialogPanel className="flex w-full max-w-md flex-col space-y-5 rounded-xl bg-white p-5 shadow-xl">
                 <DialogTitle as="h3" className="text-xl font-medium">
                   {selectedId ? 'Perbarui ' : 'Masukkan '} Data Produk
                 </DialogTitle>
@@ -143,7 +142,7 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
                     ) : null} */}
                   </div>
 
-                  <button className="cursor-pointer items-center gap-2 rounded-md bg-teal-400 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline data-[hover]:bg-teal-500 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
+                  <button className="cursor-pointer items-center gap-2 rounded-full  border bg-red-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline data-[focus]:outline-1 data-[focus]:outline-white">
                     {selectedId.length > 0 ? 'Simpan ' : 'Tambah '}
                   </button>
                 </form>

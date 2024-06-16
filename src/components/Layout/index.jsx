@@ -18,7 +18,7 @@ export default function Layout({ children }) {
   return (
     <>
       {pathname === '/product' || pathname === '/member' || pathname === '/service-history' ? (
-        <div className="flex h-screen w-full gap-5 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover p-5">
+        <div className="flex h-screen w-full gap-10 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover p-12">
           <SideBar />
 
           <main className="flex flex-1 flex-col gap-y-8 bg-opacity-75 bg-cover">

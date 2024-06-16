@@ -45,16 +45,18 @@ export default function ServiceHistoryModal({ open, setOpen, selectedId = '' }) 
                   {selectedId ? 'Perbarui ' : 'Masukkan '} Riwayat Perbaikan
                 </DialogTitle>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-3">
-                  <div className="flex flex-col gap-y-1">
-                    <label htmlFor="customer_name">Nama Pelanggan</label>
-                    <input
-                      type="text"
-                      {...register('customer_name', { required: true })}
-                      placeholder="Nama Pelanggan"
-                      className="rounded-md border px-3 py-2 focus:outline-none"
-                    />
-                    {errors.customer_name && <p className="text-red-500">{errors.customer_name.message}</p>}
-                  </div>
+                  {selectedId && (
+                    <div className="flex flex-col gap-y-1">
+                      <label htmlFor="customer_name">Nama Pelanggan</label>
+                      <input
+                        type="text"
+                        {...register('customer_name', { required: true })}
+                        placeholder="Nama Pelanggan"
+                        className="rounded-md border px-3 py-2 focus:outline-none"
+                      />
+                      {errors.customer_name && <p className="text-red-500">{errors.customer_name.message}</p>}
+                    </div>
+                  )}
                   <div className="flex flex-col gap-y-1">
                     <label htmlFor="service_date">Tanggal Perbaikan</label>
                     <input
@@ -79,30 +81,35 @@ export default function ServiceHistoryModal({ open, setOpen, selectedId = '' }) 
                     />
                     {errors.service_desc && <p className="text-red-500">{errors.service_desc.message}</p>}
                   </div>
-                  <div className="flex flex-col gap-y-1">
-                    <label htmlFor="point">Tambahkan Point</label>
-                    <input
-                      type="text"
-                      {...register('point', {
-                        required: true,
-                      })}
-                      placeholder="Tambahkan Point"
-                      className="rounded-md border px-3 py-2 focus:outline-none"
-                    />
-                    {errors.point && <p className="text-red-500">{errors.point.message}</p>}
-                  </div>
-                  <div className="flex flex-col gap-y-1">
-                    <label htmlFor="recomendation">Tambahkan Rekomendasi</label>
-                    <input
-                      type="text"
-                      {...register('recomendation', {
-                        required: true,
-                      })}
-                      placeholder="Tambahkan Rekomendasi"
-                      className="rounded-md border px-3 py-2 focus:outline-none"
-                    />
-                    {errors.recomendation && <p className="text-red-500">{errors.recomendation.message}</p>}
-                  </div>
+                  {selectedId &
+                  (
+                    <>
+                      <div className="flex flex-col gap-y-1">
+                        <label htmlFor="point">Tambahkan Point</label>
+                        <input
+                          type="text"
+                          {...register('point', {
+                            required: true,
+                          })}
+                          placeholder="Tambahkan Point"
+                          className="rounded-md border px-3 py-2 focus:outline-none"
+                        />
+                        {errors.point && <p className="text-red-500">{errors.point.message}</p>}
+                      </div>
+                      <div className="flex flex-col gap-y-1">
+                        <label htmlFor="recomendation">Tambahkan Rekomendasi</label>
+                        <input
+                          type="text"
+                          {...register('recomendation', {
+                            required: true,
+                          })}
+                          placeholder="Tambahkan Rekomendasi"
+                          className="rounded-md border px-3 py-2 focus:outline-none"
+                        />
+                        {errors.recomendation && <p className="text-red-500">{errors.recomendation.message}</p>}
+                      </div>
+                    </>
+                  )}
                   <button className="cursor-pointer items-center gap-2 rounded-full  border bg-red-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline data-[focus]:outline-1 data-[focus]:outline-white">
                     {selectedId.length > 0 ? 'Simpan ' : 'Tambah '}
                   </button>

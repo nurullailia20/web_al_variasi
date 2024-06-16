@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ServiceHistoryModal from '../form/ServiceHistoryModal'
+import Pagination from '../Layout/Pagination'
 
 function ServiceHistoryPage() {
   const [formModalState, setFormModalState] = React.useState({ open: false, selectedId: undefined })
@@ -11,15 +12,15 @@ function ServiceHistoryPage() {
   return (
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-white">Riwayat Perbaikan Member</h2>
+        <div className="text-xl font-semibold text-white">Riwayat Perbaikan Member</div>
         <button
-          className="rounded-md border px-4 py-2 text-sm text-white"
+          className="rounded-md border bg-white px-4 py-2 text-sm"
           onClick={() => handleModal(!formModalState.open)}
         >
           Tambah
         </button>
       </div>
-      <div className="inline-block max-h-[500px] min-w-full overflow-hidden rounded-lg shadow-lg hover:overflow-y-scroll">
+      <div className="flex h-full min-w-full flex-col justify-between overflow-hidden rounded-lg shadow-lg">
         <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
@@ -110,6 +111,7 @@ function ServiceHistoryPage() {
             ))}
           </tbody> */}
         </table>
+        <Pagination />
       </div>
       {formModalState.open && (
         <ServiceHistoryModal

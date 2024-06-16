@@ -1,11 +1,12 @@
 // import { useRouter } from "next/router";
 import React, { useState } from 'react'
-import { BiTrashAlt } from 'react-icons/bi'
-import { BsPencilSquare } from 'react-icons/bs'
-import { HiInformationCircle } from 'react-icons/hi'
+// import { BiTrashAlt } from 'react-icons/bi'
+// import { BsPencilSquare } from 'react-icons/bs'
+// import { HiInformationCircle } from 'react-icons/hi'
 import { IoAddCircleOutline } from 'react-icons/io5'
 
 import ProductModal from '../form/ProductModal'
+import Pagination from '../Layout/Pagination'
 
 function ProductListPage() {
   // const [data, setData] = useState([]);
@@ -43,41 +44,38 @@ function ProductListPage() {
 
   return (
     <section className="flex h-full w-full flex-col gap-3">
-      <div className="flex items-center ">
-        <h2 className="text-xl font-semibold leading-tight">Daftar Produk</h2>
+      <div className="flex items-center justify-between">
+        <div className="text-xl font-semibold text-white">Daftar Produk</div>
         <button
-          className="rounded-md bg-teal-400 px-4 py-2 text-sm text-white"
+          className="flex items-center gap-x-2 rounded-md border bg-white px-4 py-2 text-sm"
           onClick={() => handleModal(!formModalState.open)}
         >
           <IoAddCircleOutline />
+          <span>Tambah</span>
         </button>
       </div>
-      <div className="inline-block max-h-[500px] min-w-full overflow-hidden rounded-lg shadow-lg hover:overflow-y-scroll">
+      <div className="flex h-full min-w-full flex-col justify-between overflow-hidden rounded-lg shadow-lg">
         <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                No
-              </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">No</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nama Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Jumlah Stok
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Harga Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Tanggal Masuk Barang
               </th>
-              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Aksi
-              </th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            {{ ...new Array(4) }.map((item, index) => (
+            {/* {[...new Array(4)].map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-200' : 'bg-gray-10 hover:bg-gray-200'}>
                 <td className="border-gray-2 px-5 py-5 text-sm">{index + 1}</td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.name}</td>
@@ -122,9 +120,10 @@ function ProductListPage() {
                   </button>
                 </td>
               </tr>
-            ))}
+            ))} */}
           </tbody>
         </table>
+        <Pagination />
       </div>
       {formModalState.open && (
         <ProductModal
