@@ -67,7 +67,7 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
               leaveFrom="opacity-100 scale-0"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="border-teal-400 flex w-full max-w-md flex-col space-y-5 rounded-xl border bg-white p-5 shadow-xl">
+              <DialogPanel className="flex w-full max-w-md flex-col space-y-5 rounded-xl border border-teal-400 bg-white p-5 shadow-xl">
                 <DialogTitle as="h3" className="text-xl font-medium">
                   {selectedId ? 'Perbarui ' : 'Masukkan '} Data Produk
                 </DialogTitle>
@@ -143,7 +143,7 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
                     ) : null} */}
                   </div>
 
-                  <button className="bg-teal-400 data-[hover]:bg-teal-500 data-[open]:bg-gray-700 cursor-pointer items-center gap-2 rounded-md px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline data-[focus]:outline-1 data-[focus]:outline-white">
+                  <button className="cursor-pointer items-center gap-2 rounded-md bg-teal-400 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline data-[hover]:bg-teal-500 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
                     {selectedId.length > 0 ? 'Simpan ' : 'Tambah '}
                   </button>
                 </form>

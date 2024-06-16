@@ -25,7 +25,7 @@ function Header() {
 
   const router = useRouter()
   return (
-    <header className="flex h-10 w-full items-center justify-end bg-red px-5">
+    <header className="flex h-10 w-full items-center justify-end bg-red-700 px-5">
       <ul className="flex gap-x-5 ">
         {headerLinks.map(headerLink => (
           <li

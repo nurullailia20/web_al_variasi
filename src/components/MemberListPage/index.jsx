@@ -22,36 +22,32 @@ function MemberListPage() {
   return (
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold leading-tight">
-          Pelanggan Terdaftar
-        </h2>
-        <button className="rounded-md bg-white px-4 py-2 text-sm">
-          Tambah
-        </button>
+        <h2 className="text-xl font-semibold leading-tight">Pelanggan Terdaftar</h2>
+        <button className="rounded-md bg-white px-4 py-2 text-sm">Tambah</button>
       </div>
       <div className="inline-block max-h-[500px] min-w-full overflow-hidden rounded-lg shadow-lg hover:overflow-y-scroll">
-        <table className="min-w-full overflow-scroll leading-normal bg-white">
+        <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 No
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nama
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Kendaraan
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nomor Kendaraan
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nomor Telepon
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Total Poin
               </th>
-              <th className="border-b border-red bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-red border-b bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
@@ -65,7 +61,7 @@ function MemberListPage() {
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.police_number}</td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.phone_number}</td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.total_point}</td>
-                <td className="border-gray-200 gap-x-2 bg-white px-5 py-5 text-sm">
+                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -73,7 +69,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <HiInformationCircle className="h-5 w-5" />
                   </button>
@@ -84,7 +80,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Edit Data"
                     type="button"
-                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <BsPencilSquare className="h-5 w-5" />
                   </button>
@@ -95,7 +91,7 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="bg-red-500 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <BiTrashAlt className="h-5 w-5" />
                   </button>

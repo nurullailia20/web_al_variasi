@@ -1,11 +1,9 @@
 import React from 'react'
+
 import ServiceHistoryPage from '../../components/ServiceHistoryPage'
 
-
 function ServiceHistory() {
-  return (
-    <ServiceHistoryPage/>
-  )
+  return <ServiceHistoryPage />
 }
 
 export default ServiceHistory
