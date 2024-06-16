@@ -32,7 +32,7 @@ function SideBar() {
             <li
               // key={sidelink.name}
               onClick={() => router.push(sidelink.link)}
-              className="hover:bg-gray-100 flex cursor-pointer gap-3 px-4 py-10"
+              className="flex cursor-pointer gap-3 px-4 py-10 hover:bg-gray-100"
             >
               <span>{sidelink.icon}</span>
               {/* <span>{sidelink.name}</span> */}
@@ -40,7 +40,7 @@ function SideBar() {
           ))}
         </ul>
       </div>
-      <button className="hover:bg-gray-100 flex cursor-pointer gap-3 px-4 py-3">
+      <button className="flex cursor-pointer gap-3 px-4 py-3 hover:bg-gray-100">
         <span>
           <TbLogout2 />
         </span>

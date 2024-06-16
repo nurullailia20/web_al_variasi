@@ -46,7 +46,7 @@ function ProductListPage() {
       <div className="flex items-center ">
         <h2 className="text-xl font-semibold leading-tight">Daftar Produk</h2>
         <button
-          className="bg-teal-400 rounded-md px-4 py-2 text-sm text-white"
+          className="rounded-md bg-teal-400 px-4 py-2 text-sm text-white"
           onClick={() => handleModal(!formModalState.open)}
         >
           <IoAddCircleOutline />
@@ -56,22 +56,22 @@ function ProductListPage() {
         <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 No
               </th>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Nama Barang
               </th>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Jumlah Stok
               </th>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Harga Barang
               </th>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Tanggal Masuk Barang
               </th>
-              <th className="border-teal-400 bg-teal-400 border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+              <th className="border-b border-teal-400 bg-teal-400 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
@@ -84,7 +84,7 @@ function ProductListPage() {
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.stock}</td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.price}</td>
                 <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.date_in}</td>
-                <td className="border-gray-200 gap-x-2 bg-white px-5 py-5 text-sm">
+                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -92,7 +92,7 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <HiInformationCircle className="h-5 w-5" />
                   </button>
@@ -104,7 +104,7 @@ function ProductListPage() {
                     title="Edit Data"
                     type="button"
                     onClick={() => handleModal(!formModalState.open, item.id)}
-                    className="bg-teal-400 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <BsPencilSquare className="h-5 w-5" />
                   </button>
@@ -116,7 +116,7 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="bg-red-500 text-gray-50 mx-1 rounded-[6px] p-2 text-[14px] font-normal"
+                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
                   >
                     <BiTrashAlt className="h-5 w-5" />
                   </button>

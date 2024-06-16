@@ -7,7 +7,7 @@ function ProductCard({ image, productUrl }) {
       <div className="h-full w-full overflow-hidden rounded-lg">
         <Image src={image} alt="Product" />
       </div>
-      <button onClick={() => (window.location.href = productUrl)} className="rounded-lg border-red bg-white">
+      <button onClick={() => (window.location.href = productUrl)} className="border-red rounded-lg bg-white">
         LIHAT DETAIL BARANG
       </button>
     </div>
