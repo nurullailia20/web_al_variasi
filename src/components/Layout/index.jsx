@@ -7,13 +7,6 @@ import ProfileCard from './ProfileCard'
 import SideBar from './SideBar'
 
 export default function Layout({ children }) {
-  // export default function Layout({ children }) {
-  //   // const [isLogin, setIsLogin] = useState(false);
-
-  //   // // Fungsi untuk menangani login yang bisa kamu pasing dari komponen anak ke Layout
-  //   // const handleLogin = () => {
-  //   //   setIsLogin(true);
-  //   // };
   const { pathname } = useRouter()
   return (
     <>
@@ -31,7 +24,7 @@ export default function Layout({ children }) {
           <Header />
           <Navbar />
 
-          <main className="flex-1 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover">{children}</main>
+          <main className="flex-1 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover p-12">{children}</main>
         </div>
       )}
     </>

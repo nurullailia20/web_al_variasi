@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { BsBagCheckFill } from 'react-icons/bs'
@@ -20,6 +21,11 @@ function SideBar() {
     },
   ]
   const router = useRouter()
+  const handleLogout = () => {
+    Cookies.remove('token')
+    Cookies.remove('refreshtoken')
+    router.push('/login')
+  }
   return (
     <div className="flex h-full w-16 flex-col items-center justify-between rounded-full bg-white py-5">
       <div>Al-Variasi</div>
@@ -33,7 +39,10 @@ function SideBar() {
           </li>
         ))}
       </ul>
-      <button className="flex h-16 w-full cursor-pointer items-center justify-center rounded-full transition-all duration-200 hover:bg-red-600">
+      <button
+        className="flex h-16 w-full cursor-pointer items-center justify-center rounded-full transition-all duration-200 hover:bg-red-600"
+        onClick={handleLogout}
+      >
         <TbLogout2 />
       </button>
     </div>

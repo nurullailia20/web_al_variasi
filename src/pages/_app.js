@@ -1,15 +1,15 @@
-// import { ToggleFormProvider } from "../hooks/useToggleForm";
 import '../styles/globals.css'
 
 import Layout from '../components/Layout'
+import { AuthProvider } from '../hooks/useAuth'
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <ToggleFormProvider>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    // </ToggleFormProvider>
+    <AuthProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </AuthProvider>
   )
 }
 
