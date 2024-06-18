@@ -1,46 +1,51 @@
-// import { useRouter } from "next/router";
-import React, { useState } from 'react'
-// import { BiTrashAlt } from 'react-icons/bi'
-// import { BsPencilSquare } from 'react-icons/bs'
-// import { HiInformationCircle } from 'react-icons/hi'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { BiTrashAlt } from 'react-icons/bi'
+import { BsPencilSquare } from 'react-icons/bs'
+import { HiInformationCircle } from 'react-icons/hi'
 import { IoAddCircleOutline } from 'react-icons/io5'
 
 import ProductModal from '../form/ProductModal'
 import Pagination from '../Layout/Pagination'
+import { APIProduct } from '../utils/API.type'
+import { config } from '../utils/config'
 
 function ProductListPage() {
-  // const [data, setData] = useState([]);
-  const [formModalState, setFormModalState] = useState({ open: false, selectedId: undefined })
+  const [data, setData] = React.useState([])
+  const [formModalState, setFormModalState] = React.useState({ open: false, selectedId: undefined })
+  const router = useRouter()
+
+  React.useEffect(() => {
+    const token = Cookies.get('token')
+    if (!token) {
+      router.push('/login')
+    }
+  }, [router])
   const handleModal = (open, selectedId = '') => {
     setFormModalState({ open, selectedId })
   }
 
-  // const router = useRouter();
+  const handleDelete = async id => {
+    try {
+      const response = await axios.delete(config.APIUrl + APIProduct.DELETE_PRODUCT + id)
+      alert(response.data.message)
+      router.reload()
+      return response
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     const response = await axios.delete(
-  //       `http://localhost:4000/product/${id}`
-  //     );
-  //     if (response.status === 200) {
-  //       alert(response.data.message);
-  //     } else alert(response.data.message);
-  //     router.reload();
-  //     return response;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch("http://localhost:4000/product");
-  //     const responseData = await response.json();
-  //     setData(responseData.data);
-  //     return responseData.data;
-  //   };
-  //   fetchData();
-  // }, []);
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(config.APIUrl + APIProduct.GET_ALL_PRODUCTS)
+      setData(response.data.data)
+      console.log(response.data.data)
+    }
+    fetchData()
+  }, [])
 
   return (
     <section className="flex h-full w-full flex-col gap-3">
@@ -58,31 +63,23 @@ function ProductListPage() {
         <table className="min-w-full overflow-scroll bg-white leading-normal">
           <thead>
             <tr>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">No</th>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Nama Barang
-              </th>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Jumlah Stok
-              </th>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Harga Barang
-              </th>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">
-                Tanggal Masuk Barang
-              </th>
-              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider">Aksi</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">No</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">Nama Barang</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">Jumlah Stok</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">Harga Barang</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">Tanggal Masuk Barang</th>
+              <th className="border-b px-5 py-3 text-left text-xs font-semibold uppercase">Aksi</th>
             </tr>
           </thead>
           <tbody>
-            {/* {[...new Array(4)].map((item, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-200' : 'bg-gray-10 hover:bg-gray-200'}>
+            {data?.map((item, index) => (
+              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-100' : 'bg-gray-100 hover:bg-gray-100'}>
                 <td className="border-gray-2 px-5 py-5 text-sm">{index + 1}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.name}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.stock}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.price}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.date_in}</td>
-                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
+                <td className="px-5 py-5 text-sm capitalize">{item.name}</td>
+                <td className="px-5 py-5 text-sm">{item.stock}</td>
+                <td className="px-5 py-5 text-sm">{item.price}</td>
+                <td className="px-5 py-5 text-sm">{item.date_in}</td>
+                <td className="gap-x-2px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -90,9 +87,9 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="mx-1 rounded-[6px] text-[14px] font-normal"
                   >
-                    <HiInformationCircle className="h-5 w-5" />
+                    <HiInformationCircle className="h-7 w-7 text-gray-700" />
                   </button>
                   <button
                     data-twe-toggle="tooltip"
@@ -102,25 +99,25 @@ function ProductListPage() {
                     title="Edit Data"
                     type="button"
                     onClick={() => handleModal(!formModalState.open, item.id)}
-                    className="mx-1 rounded-[6px] bg-teal-400 p-2 text-[14px] font-normal text-gray-50"
+                    className="mx-1 rounded-[6px] text-[14px] font-normal"
                   >
-                    <BsPencilSquare className="h-5 w-5" />
+                    <BsPencilSquare className="h-7 w-7 text-gray-700" />
                   </button>
                   <button
-                    // onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(item.id)}
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
                     data-twe-ripple-init
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
+                    className="mx-1 rounded-[6px] text-[14px] font-normal"
                   >
-                    <BiTrashAlt className="h-5 w-5" />
+                    <BiTrashAlt className="h-7 w-7 text-gray-700" />
                   </button>
                 </td>
               </tr>
-            ))} */}
+            ))}
           </tbody>
         </table>
         <Pagination />

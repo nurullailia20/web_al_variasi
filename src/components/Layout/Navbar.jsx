@@ -8,8 +8,8 @@ function Navbar() {
       href: '/',
     },
     {
-      name: 'Produk',
-      href: '/catalog',
+      name: 'Katalog',
+      href: '/catalojg',
     },
     {
       name: 'Tentang Kami',
