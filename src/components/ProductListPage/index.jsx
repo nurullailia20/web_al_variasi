@@ -1,27 +1,21 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { BiTrashAlt } from 'react-icons/bi'
 import { BsPencilSquare } from 'react-icons/bs'
 import { HiInformationCircle } from 'react-icons/hi'
 
+import { APIProduct } from '../../utils/API.type'
+import { config } from '../../utils/config'
 import ProductModal from '../form/ProductModal'
 import Pagination from '../Layout/Pagination'
-import { APIProduct } from '../utils/API.type'
-import { config } from '../utils/config'
 
 function ProductListPage() {
   const [data, setData] = React.useState([])
   const [formModalState, setFormModalState] = React.useState({ open: false, selectedId: undefined })
   const router = useRouter()
 
-  React.useEffect(() => {
-    const token = Cookies.get('token')
-    if (!token) {
-      router.push('/login')
-    }
-  }, [router])
   const handleModal = (open, selectedId = '') => {
     setFormModalState({ open, selectedId })
   }
@@ -74,7 +68,7 @@ function ProductListPage() {
                 <td className="px-5 py-5 text-sm">{item.stock}</td>
                 <td className="px-5 py-5 text-sm">{item.price}</td>
                 <td className="px-5 py-5 text-sm">{item.date_in}</td>
-                <td className="gap-x-2px-5 py-5 text-sm">
+                <td className="flex gap-x-2 px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -82,7 +76,7 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="mx-1 rounded-[6px] text-[14px] font-normal"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
                     <HiInformationCircle className="h-7 w-7 text-gray-700" />
                   </button>
@@ -94,7 +88,7 @@ function ProductListPage() {
                     title="Edit Data"
                     type="button"
                     onClick={() => handleModal(!formModalState.open, item.id)}
-                    className="mx-1 rounded-[6px] text-[14px] font-normal"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
                     <BsPencilSquare className="h-7 w-7 text-gray-700" />
                   </button>
@@ -106,7 +100,7 @@ function ProductListPage() {
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="mx-1 rounded-[6px] text-[14px] font-normal"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
                     <BiTrashAlt className="h-7 w-7 text-gray-700" />
                   </button>

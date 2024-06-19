@@ -3,8 +3,8 @@ import axios from 'axios'
 import React from 'react'
 
 import gambar from '../../../public/assets/gambar1.jpg'
-import { APIProduct } from '../utils/API.type'
-import { config } from '../utils/config'
+import { APIProduct } from '../../utils/API.type'
+import { config } from '../../utils/config'
 import ProductCard from './ProductCard'
 
 const productsData = [

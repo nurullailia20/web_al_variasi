@@ -5,24 +5,33 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { IoIosArrowBack } from 'react-icons/io'
 
-import { APIAuth } from '../utils/API.type'
-import { config } from '../utils/config'
+import { APIAuth } from '../../utils/API.type'
+import { config } from '../../utils/config'
 
 function LoginForm({ role, setShowForm }) {
   const router = useRouter()
   const { handleSubmit, register } = useForm()
 
   const onSubmit = async val => {
+    const payload = {
+      ...val,
+      userRole: role,
+    }
     try {
-      const response = await axios.post(config.APIUrl + APIAuth.LOGIN, val, {
+      const response = await axios.post(config.APIUrl + APIAuth.LOGIN, payload, {
         withCredentials: true,
       })
 
       if (response?.data?.statusCode === 200) {
-        const { accessToken, refreshToken } = response.data.data
+        const { accessToken, refreshToken, userRole } = response.data.data
         Cookies.set('token', accessToken)
         Cookies.set('refreshtoken', refreshToken)
-        router.push('/product')
+        Cookies.set('userrole', userRole)
+        if (userRole === 'ADMIN') {
+          router.push('/admin/product')
+        } else {
+          router.push('/client')
+        }
       } else {
         console.log('Login failed')
       }
