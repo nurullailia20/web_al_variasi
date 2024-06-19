@@ -5,7 +5,6 @@ import React from 'react'
 import { BiTrashAlt } from 'react-icons/bi'
 import { BsPencilSquare } from 'react-icons/bs'
 import { HiInformationCircle } from 'react-icons/hi'
-import { IoAddCircleOutline } from 'react-icons/io5'
 
 import ProductModal from '../form/ProductModal'
 import Pagination from '../Layout/Pagination'
@@ -51,11 +50,7 @@ function ProductListPage() {
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
         <div className="text-xl font-semibold text-white">Daftar Produk</div>
-        <button
-          className="flex items-center gap-x-2 rounded-md border bg-white px-4 py-2 text-sm"
-          onClick={() => handleModal(!formModalState.open)}
-        >
-          <IoAddCircleOutline />
+        <button className="rounded-md bg-white px-4 py-2 text-sm" onClick={() => handleModal(!formModalState.open)}>
           <span>Tambah</span>
         </button>
       </div>

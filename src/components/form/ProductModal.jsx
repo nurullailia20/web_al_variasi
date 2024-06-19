@@ -29,7 +29,9 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
       setData(response.data.data)
     }
     console.log(data)
-    getProduct(selectedId)
+    if (selectedId) {
+      getProduct(selectedId)
+    }
   }, [selectedId])
 
   React.useEffect(() => {

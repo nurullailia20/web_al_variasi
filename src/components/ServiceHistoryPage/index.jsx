@@ -13,10 +13,7 @@ function ServiceHistoryPage() {
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
         <div className="text-xl font-semibold text-white">Riwayat Perbaikan Member</div>
-        <button
-          className="rounded-md border bg-white px-4 py-2 text-sm"
-          onClick={() => handleModal(!formModalState.open)}
-        >
+        <button className="rounded-md bg-white px-4 py-2 text-sm" onClick={() => handleModal(!formModalState.open)}>
           Tambah
         </button>
       </div>

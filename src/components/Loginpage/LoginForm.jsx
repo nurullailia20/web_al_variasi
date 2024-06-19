@@ -22,7 +22,7 @@ function LoginForm({ role, setShowForm }) {
         const { accessToken, refreshToken } = response.data.data
         Cookies.set('token', accessToken)
         Cookies.set('refreshtoken', refreshToken)
-        router.push('/')
+        router.push('/product')
       } else {
         console.log('Login failed')
       }

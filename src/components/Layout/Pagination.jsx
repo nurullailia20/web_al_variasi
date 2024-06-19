@@ -10,7 +10,9 @@ export default function Pagination() {
         </button>
         <ul className="flex gap-x-2">
           {[...new Array(5)].map((_, index) => (
-            <button className="grid h-10 w-10 place-items-center rounded-full bg-white">{index + 1}</button>
+            <button key={index} className="grid h-10 w-10 place-items-center rounded-full bg-white">
+              {index + 1}
+            </button>
           ))}
         </ul>
         <button className="grid h-10 w-10 place-items-center rounded-full ">

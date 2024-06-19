@@ -24,7 +24,7 @@ function MemberListPage() {
   return (
     <section className="flex h-full w-full flex-col gap-3">
       <div className="flex items-center justify-between">
-        <div className="text-xl font-semibold text-white">Pelanggan Terdaftar</div>
+        <div className="text-xl font-semibold text-white">Daftar Pelanggan</div>
         <button className="rounded-md bg-white px-4 py-2 text-sm">Tambah</button>
       </div>
       <div className="flex h-full min-w-full flex-col justify-between overflow-hidden rounded-lg shadow-lg">
