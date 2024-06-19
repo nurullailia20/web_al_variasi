@@ -1,7 +1,14 @@
+import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 function Navbar() {
+  const [role, setRole] = React.useState('')
+  React.useEffect(() => {
+    const userRole = Cookies.get('userrole')
+    setRole(userRole)
+  }, [])
+  console.log(role)
   const navlinks = [
     {
       name: 'Beranda',
@@ -28,6 +35,7 @@ function Navbar() {
             {navlink.name}
           </li>
         ))}
+        {role === 'ADMIN' && <li onClick={() => router.push('/admin/product')}>Admin</li>}
       </ul>
     </nav>
   )

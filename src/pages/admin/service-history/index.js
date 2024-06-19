@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ServiceHistoryPage from '../../components/ServiceHistoryPage'
+import ServiceHistoryPage from '../../../components/ServiceHistoryPage'
 
 function ServiceHistory() {
   return <ServiceHistoryPage />

@@ -8,15 +8,15 @@ import { TbLogout2 } from 'react-icons/tb'
 function SideBar() {
   const sidelinks = [
     {
-      link: '/product',
+      link: '/admin/product',
       icon: <BsBagCheckFill />,
     },
     {
-      link: '/member',
+      link: '/admin/member',
       icon: <FaUsers />,
     },
     {
-      link: '/service-history',
+      link: '/admin/service-history',
       icon: <FaClipboardList />,
     },
   ]
@@ -24,6 +24,7 @@ function SideBar() {
   const handleLogout = () => {
     Cookies.remove('token')
     Cookies.remove('refreshtoken')
+    Cookies.remove('userrole')
     router.push('/login')
   }
   return (

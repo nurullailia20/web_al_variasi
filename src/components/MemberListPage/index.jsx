@@ -1,25 +1,36 @@
+import axios from 'axios'
+// import Cookies from 'js-cookie'
+// import { useRouter } from 'next/router'
 import React from 'react'
+import { BiTrashAlt } from 'react-icons/bi'
+import { BsPencilSquare } from 'react-icons/bs'
+import { HiInformationCircle } from 'react-icons/hi'
 
+import { APIAuth } from '../../utils/API.type'
+import { config } from '../../utils/config'
 import Pagination from '../Layout/Pagination'
-// import { BiTrashAlt } from 'react-icons/bi'
-// import { BsPencilSquare } from 'react-icons/bs'
-// import { HiInformationCircle } from 'react-icons/hi'
 
 function MemberListPage() {
-  // const [data, setData] = useState([])
+  const [data, setData] = React.useState([])
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch(
-  //       "http://localhost:4000/customer"
-  //     );
-  //     const responseData = await response.json();
-  //     // console.log(responseData)
-  //     setData(responseData.data);
-  //     return responseData.data;
-  //   };
-  //   fetchData();
-  // }, []);
+  // const router = useRouter()
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(config.APIUrl + APIAuth.GET_CUSTOMERS)
+      setData(response.data.data)
+      return response.data.data
+    }
+    // const checkAuth = () => {
+    //   const token = Cookies.get('token')
+    //   const role = Cookies.get('userrole')
+    //   if (!token && role !== 'ADMIN') {
+    //     router.push('/')
+    //   }
+    // }
+    // checkAuth()
+    fetchData()
+  }, [])
 
   return (
     <section className="flex h-full w-full flex-col gap-3">
@@ -55,15 +66,15 @@ function MemberListPage() {
             </tr>
           </thead>
           <tbody>
-            {/* {[...new Array(4)].map((item, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-200' : 'bg-gray-10 hover:bg-gray-200'}>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{index + 1}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.name}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.vehicle}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.police_number}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.phone_number}</td>
-                <td className="border-gray-200 bg-white px-5 py-5 text-sm">{item.total_point}</td>
-                <td className="gap-x-2 border-gray-200 bg-white px-5 py-5 text-sm">
+            {data?.map((item, index) => (
+              <tr key={index} className={index % 2 === 0 ? 'hover:bg-gray-100' : 'bg-gray-100 hover:bg-gray-100'}>
+                <td className="px-5 py-5 text-sm">{index + 1}</td>
+                <td className="px-5 py-5 text-sm capitalize">{item.name}</td>
+                <td className="px-5 py-5 text-sm">{item.customer_items?.[0]?.vehicle}</td>
+                <td className="px-5 py-5 text-sm">{item.customer_items?.[0]?.police_number}</td>
+                <td className="px-5 py-5 text-sm">{item.phone_number}</td>
+                <td className="px-5 py-5 text-sm">{item.total_point}</td>
+                <td className="flex gap-x-2 px-5 py-5 text-sm">
                   <button
                     data-twe-toggle="tooltip"
                     data-twe-html="true"
@@ -71,9 +82,9 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Lihat Detail"
                     type="button"
-                    className="mx-1 rounded-[6px] p-2 text-[14px] font-normal text-gray-50"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
-                    <HiInformationCircle className="h-5 w-5" />
+                    <HiInformationCircle className="h-7 w-7 text-gray-700" />
                   </button>
                   <button
                     data-twe-toggle="tooltip"
@@ -82,9 +93,9 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Edit Data"
                     type="button"
-                    className="mx-1 rounded-[6px] p-2 text-[14px] font-normal text-gray-50"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
-                    <BsPencilSquare className="h-5 w-5" />
+                    <BsPencilSquare className="h-7 w-7 text-gray-700" />
                   </button>
                   <button
                     data-twe-toggle="tooltip"
@@ -93,13 +104,13 @@ function MemberListPage() {
                     data-twe-ripple-color="light"
                     title="Hapus Data"
                     type="button"
-                    className="mx-1 rounded-[6px] bg-red-500 p-2 text-[14px] font-normal text-gray-50"
+                    className="rounded-[6px] text-[14px] font-normal"
                   >
-                    <BiTrashAlt className="h-5 w-5" />
+                    <BiTrashAlt className="h-7 w-7 text-gray-700" />
                   </button>
                 </td>
               </tr>
-            ))} */}
+            ))}
           </tbody>
         </table>
         <Pagination />

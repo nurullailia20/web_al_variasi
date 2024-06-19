@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import { APIProduct } from '../utils/API.type'
-import { config } from '../utils/config'
+import { APIProduct } from '../../utils/API.type'
+import { config } from '../../utils/config'
 
 export default function ProductModal({ open, setOpen, selectedId = '' }) {
   const {

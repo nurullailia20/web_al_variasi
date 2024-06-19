@@ -1,6 +1,7 @@
 export const APIAuth = {
   LOGIN: '/auth/login',
   REGISTER: '/auth/register',
+  GET_CUSTOMERS: '/auth/customers',
 }
 
 export const APIProduct = {
