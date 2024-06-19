@@ -3,11 +3,12 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { IoIosArrowBack } from 'react-icons/io'
 
 import { APIAuth } from '../utils/API.type'
 import { config } from '../utils/config'
 
-function LoginForm() {
+function LoginForm({ role, setShowForm }) {
   const router = useRouter()
   const { handleSubmit, register } = useForm()
 
@@ -32,7 +33,10 @@ function LoginForm() {
 
   return (
     <div className="flex h-auto w-[450px] flex-col gap-y-7 rounded-2xl bg-white bg-opacity-50 px-10 py-5 shadow-xl">
-      <div className="text-center text-xl font-semibold">Masuk Sebagai Admin</div>
+      <div className="flex w-full items-center justify-between">
+        <IoIosArrowBack className="-ml-1 h-7 w-7 cursor-pointer" onClick={() => setShowForm(false)} />
+        <h1 className="text-lg font-semibold">Masuk Sebagai {role === 'admin' ? 'Admin' : 'Pelanggan'}</h1>
+      </div>
       <form className="flex h-full w-full flex-col gap-y-5" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
           <label htmlFor="email">Masukkan Email</label>
@@ -48,7 +52,7 @@ function LoginForm() {
           />
         </div>
         <div className="flex justify-center">
-          <button type="submit" className="w-4/5 rounded-full bg-white p-2 px-12">
+          <button type="submit" className="w-4/5 rounded-full bg-red-700 p-2 px-12 text-white">
             Masuk
           </button>
         </div>
