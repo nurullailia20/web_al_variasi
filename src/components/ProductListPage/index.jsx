@@ -7,7 +7,6 @@ import { BsPencilSquare } from 'react-icons/bs'
 import { HiInformationCircle } from 'react-icons/hi'
 
 import { APIProduct } from '../../utils/API.type'
-import { config } from '../../utils/config'
 import ProductModal from '../form/ProductModal'
 import Pagination from '../Layout/Pagination'
 
@@ -22,7 +21,7 @@ function ProductListPage() {
 
   const handleDelete = async id => {
     try {
-      const response = await axios.delete(config.APIUrl + APIProduct.DELETE_PRODUCT + id)
+      const response = await axios.delete(APIProduct.DELETE_PRODUCT + id)
       alert(response.data.message)
       router.reload()
       return response
@@ -33,7 +32,7 @@ function ProductListPage() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(config.APIUrl + APIProduct.GET_ALL_PRODUCTS)
+      const response = await axios.get(APIProduct.GET_ALL_PRODUCTS)
       setData(response.data.data)
       console.log(response.data.data)
     }

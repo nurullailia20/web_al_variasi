@@ -5,7 +5,6 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 import { APIProduct } from '../../utils/API.type'
-import { config } from '../../utils/config'
 
 export default function ProductModal({ open, setOpen, selectedId = '' }) {
   const {
@@ -25,7 +24,7 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
 
   React.useEffect(() => {
     const getProduct = async id => {
-      const response = await axios.get(config.APIUrl + APIProduct.GET_DETAILS_PRODUCT + id)
+      const response = await axios.get(APIProduct.GET_DETAILS_PRODUCT + id)
       setData(response.data.data)
     }
     console.log(data)
@@ -51,9 +50,9 @@ export default function ProductModal({ open, setOpen, selectedId = '' }) {
     try {
       let response
       if (selectedId) {
-        response = await axios.put(config.APIUrl + APIProduct.UPDATE_PRODUCT + selectedId, val)
+        response = await axios.put(APIProduct.UPDATE_PRODUCT + selectedId, val)
       } else {
-        response = await axios.post(config.APIUrl + APIProduct.ADD_PRODUCT, val)
+        response = await axios.post(APIProduct.ADD_PRODUCT, val)
       }
       alert(response.data.message)
       reload()

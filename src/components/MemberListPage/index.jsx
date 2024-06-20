@@ -7,7 +7,6 @@ import { BsPencilSquare } from 'react-icons/bs'
 import { HiInformationCircle } from 'react-icons/hi'
 
 import { APIAuth } from '../../utils/API.type'
-import { config } from '../../utils/config'
 import Pagination from '../Layout/Pagination'
 
 function MemberListPage() {
@@ -17,7 +16,7 @@ function MemberListPage() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(config.APIUrl + APIAuth.GET_CUSTOMERS)
+      const response = await axios.get(APIAuth.GET_CUSTOMERS)
       setData(response.data.data)
       return response.data.data
     }

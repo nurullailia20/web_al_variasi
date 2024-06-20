@@ -1,13 +1,15 @@
+import { config } from './config'
+
 export const APIAuth = {
-  LOGIN: '/auth/login',
-  REGISTER: '/auth/register',
-  GET_CUSTOMERS: '/auth/customers',
+  LOGIN: config.APIUrl + '/auth/login',
+  REGISTER: config.APIUrl + '/auth/register',
+  GET_CUSTOMERS: config.APIUrl + '/auth/customers',
 }
 
 export const APIProduct = {
-  GET_ALL_PRODUCTS: '/product',
-  GET_DETAILS_PRODUCT: '/product/detail/',
-  ADD_PRODUCT: '/product/add',
-  UPDATE_PRODUCT: '/product/update/',
-  DELETE_PRODUCT: '/product/delete/',
+  GET_ALL_PRODUCTS: config.APIUrl + '/product',
+  GET_DETAILS_PRODUCT: config.APIUrl + '/product/detail/',
+  ADD_PRODUCT: config.APIUrl + '/product/add',
+  UPDATE_PRODUCT: config.APIUrl + '/product/update/',
+  DELETE_PRODUCT: config.APIUrl + '/product/delete/',
 }

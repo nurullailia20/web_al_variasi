@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form'
 import { IoIosArrowBack } from 'react-icons/io'
 
 import { APIAuth } from '../../utils/API.type'
-import { config } from '../../utils/config'
 
 function LoginForm({ role, setShowForm }) {
   const router = useRouter()
@@ -18,7 +17,7 @@ function LoginForm({ role, setShowForm }) {
       userRole: role,
     }
     try {
-      const response = await axios.post(config.APIUrl + APIAuth.LOGIN, payload, {
+      const response = await axios.post(APIAuth.LOGIN, payload, {
         withCredentials: true,
       })
 

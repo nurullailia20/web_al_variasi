@@ -4,7 +4,6 @@ import React from 'react'
 
 import gambar from '../../../public/assets/gambar1.jpg'
 import { APIProduct } from '../../utils/API.type'
-import { config } from '../../utils/config'
 import ProductCard from './ProductCard'
 
 const productsData = [
@@ -30,7 +29,7 @@ function ProductCatalog() {
   const [data, setData] = React.useState([])
   React.useEffect(() => {
     const getProducts = async () => {
-      const responses = await axios.get(config.APIUrl + APIProduct.GET_ALL_PRODUCTS)
+      const responses = await axios.get(APIProduct.GET_ALL_PRODUCTS)
       setData(responses.data.data)
       console.log(responses.data.data)
     }
