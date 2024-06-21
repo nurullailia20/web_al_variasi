@@ -25,6 +25,7 @@ function SideBar() {
     Cookies.remove('token')
     Cookies.remove('refreshtoken')
     Cookies.remove('userrole')
+    Cookies.remove('username')
     router.push('/login')
   }
   return (

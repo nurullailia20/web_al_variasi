@@ -8,7 +8,7 @@ function Navbar() {
     const userRole = Cookies.get('userrole')
     setRole(userRole)
   }, [])
-  console.log(role)
+
   const navlinks = [
     {
       name: 'Beranda',
