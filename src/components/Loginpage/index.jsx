@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 import LoginForm from './LoginForm'
@@ -5,6 +7,16 @@ import LoginForm from './LoginForm'
 function Loginpage() {
   const [role, setRole] = React.useState('')
   const [showForm, setShowForm] = React.useState(false)
+
+  const router = useRouter()
+
+  React.useEffect(() => {
+    const token = Cookies.get('token')
+    if (token) {
+      router.push('/')
+    }
+  }, [])
+
   return (
     <div className="flex h-full items-center justify-center">
       {!showForm ? (

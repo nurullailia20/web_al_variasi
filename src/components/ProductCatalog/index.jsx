@@ -31,7 +31,6 @@ function ProductCatalog() {
     const getProducts = async () => {
       const responses = await axios.get(APIProduct.GET_ALL_PRODUCTS)
       setData(responses.data.data)
-      console.log(responses.data.data)
     }
     getProducts()
   }, [])
@@ -39,7 +38,6 @@ function ProductCatalog() {
     <div className="grid h-full w-full grid-cols-4 items-center justify-center gap-3">
       {productsData.map((item, index) => (
         <ProductCard image={item.image} productUrl={item.url} key={index} />
-        // <h1 key={index}>{item.name}</h1>
       ))}
     </div>
   )

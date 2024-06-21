@@ -22,15 +22,13 @@ function LoginForm({ role, setShowForm }) {
       })
 
       if (response?.data?.statusCode === 200) {
-        const { accessToken, refreshToken, userRole } = response.data.data
+        const { accessToken, refreshToken, username, userRole, redirectUrl } = response.data.data
         Cookies.set('token', accessToken)
         Cookies.set('refreshtoken', refreshToken)
+        Cookies.set('username', username)
         Cookies.set('userrole', userRole)
-        if (userRole === 'ADMIN') {
-          router.push('/admin/product')
-        } else {
-          router.push('/client')
-        }
+        router.push(redirectUrl)
+        console.log(username)
       } else {
         console.log('Login failed')
       }

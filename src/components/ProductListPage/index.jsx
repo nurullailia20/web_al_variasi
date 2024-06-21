@@ -34,7 +34,6 @@ function ProductListPage() {
     const fetchData = async () => {
       const response = await axios.get(APIProduct.GET_ALL_PRODUCTS)
       setData(response.data.data)
-      console.log(response.data.data)
     }
     fetchData()
   }, [])

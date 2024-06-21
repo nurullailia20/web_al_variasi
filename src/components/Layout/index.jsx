@@ -10,11 +10,15 @@ import SideBar from './SideBar'
 const adminPathnames = ['/admin/product', '/admin/member', '/admin/service-history']
 
 export default function Layout({ children }) {
+  const [userName, setUserName] = React.useState()
   const router = useRouter()
 
   React.useEffect(() => {
     const token = Cookies.get('token')
     const userRole = Cookies.get('userrole')
+    const username = Cookies.get('username')
+
+    setUserName(username)
 
     if (adminPathnames.includes(router.pathname)) {
       if (!token) {
@@ -31,7 +35,7 @@ export default function Layout({ children }) {
         <div className="flex h-screen w-full gap-10 bg-opacity-75 bg-[url('/assets/background.jpg')] bg-cover p-12">
           <SideBar />
           <main className="flex flex-1 flex-col gap-y-8 bg-opacity-75 bg-cover">
-            <ProfileCard />
+            <ProfileCard username={userName} />
             <section className="flex-1">{children}</section>
           </main>
         </div>
