@@ -1,3 +1,3 @@
 export const config = {
-  APIUrl: 'http://localhost:4000/api/v1',
+  APIUrl: 'https://al-variasi-api.vercel.app/api/v1',
 }
